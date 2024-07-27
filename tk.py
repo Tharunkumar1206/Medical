@@ -204,5 +204,4 @@ with gr.Blocks(theme=theme) as demo:
     submit.click(process_document, inputs=[input_image, instruction, llm], outputs=[output_table])
     instruction.submit(process_document, inputs=[input_image, instruction, llm], outputs=[output_table])
 
-demo.queue().launch(auth=(auth_username, auth_password),
-                    auth_message="Please enter your username and password to access the Holoware Biomedical Language Models.")
+demo.queue().launch()
