@@ -171,11 +171,6 @@ with gr.Blocks(theme=gr.themes.Monochrome()) as demo:
                 output_table = gr.Textbox(lines=8, label="Intermediate Table")
             output_text = gr.Textbox(lines=8, label="Output")
 
-    # Linking actions to components
-    openai_api_key_textbox.change(set_openai_api_key, inputs=[openai_api_key_textbox])
-    openai_api_key_textbox.submit(set_openai_api_key, inputs=[openai_api_key_textbox])
-    submit.click(process_document, inputs=[input_image, instruction, llm], outputs=[output_table, output_text])
-    instruction.submit(process_document, inputs=[input_image, instruction, llm], outputs=[output_table, output_text])
-
+    
 demo.queue().launch(auth=(auth_username, auth_password),
                     auth_message="Please enter your username and password to access the Holoware Biomedical Language Models.")
